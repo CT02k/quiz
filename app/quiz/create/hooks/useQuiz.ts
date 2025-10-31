@@ -6,7 +6,24 @@ type QuizData = { title: string; questions: QuestionData[] };
 
 export function useQuiz(initial?: QuizData) {
   const [quiz, setQuiz] = useState<QuizData>(
-    initial || { title: "", questions: [] },
+    initial || {
+      title: "",
+      questions: [
+        {
+          text: "",
+          options: [
+            {
+              text: "",
+              isCorrect: false,
+            },
+            {
+              text: "",
+              isCorrect: false,
+            },
+          ],
+        },
+      ],
+    },
   );
 
   const addQuestion = () => {
