@@ -136,7 +136,7 @@ export default function CreateQuizPage() {
             disabled={loading}
             className="px-4 py-2 bg-zinc-800 text-white rounded-lg cursor-pointer hover:opacity-90 transition disabled:opacity-50"
           >
-            Save Quiz
+            Create Quiz
           </button>
         </div>
       </form>
