@@ -60,7 +60,7 @@ export default function CreateQuizPage() {
 
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center">
-      <h1 className="text-4xl">Create Quiz</h1>
+      <h1 className="text-6xl font-semibold">Create Quiz</h1>
       <form
         onSubmit={handleSubmit}
         className="flex flex-col items-center mt-10"
@@ -74,7 +74,7 @@ export default function CreateQuizPage() {
           className="bg-zinc-900 rounded-lg px-3 py-2 outline-none border border-zinc-800 transition focus:border-zinc-700 text-lg w-72 disabled:opacity-50"
         />
 
-        <div className="flex flex-wrap gap-8 my-10">
+        <div className="flex flex-wrap w-full justify-center h-72 px-20 overflow-y-scroll gap-8 my-10">
           {quiz.questions.map((question, qi) => (
             <div
               key={qi}
