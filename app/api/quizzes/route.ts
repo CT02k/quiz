@@ -2,8 +2,14 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/app/lib/prisma";
 import { quizSchema } from "@/app/schemas/api/quizzes";
 import z from "zod";
+import { rateLimitResponse } from "@/app/lib/rateLimit/createQuiz";
 
 export async function POST(req: Request) {
+  const ip = req.headers.get("x-forwarded-for") || "unknown";
+
+  const limited = rateLimitResponse(ip);
+  if (limited) return limited;
+
   try {
     const data = await req.json().catch(() => {
       throw new Error("INVALID_JSON");

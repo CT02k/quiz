@@ -74,7 +74,7 @@ export default function CreateQuizPage() {
           className="bg-zinc-900 rounded-lg px-3 py-2 outline-none border border-zinc-800 transition focus:border-zinc-700 text-lg w-72 disabled:opacity-50"
         />
 
-        <div className="flex flex-wrap w-full justify-center h-72 px-20 overflow-y-scroll gap-8 my-10">
+        <div className="flex flex-wrap w-full justify-center h-fit px-20 overflow-y-scroll gap-8 mt-10">
           {quiz.questions.map((question, qi) => (
             <div
               key={qi}
@@ -120,23 +120,22 @@ export default function CreateQuizPage() {
             </div>
           ))}
         </div>
+        <button
+          type="button"
+          onClick={addQuestion}
+          disabled={loading}
+          className="px-4 py-2 text-white rounded-lg cursor-pointer hover:opacity-90 transition disabled:opacity-50 mt-2"
+        >
+          + Add question
+        </button>
 
         <div className="flex gap-4">
           <button
-            type="button"
-            onClick={addQuestion}
-            disabled={loading}
-            className="px-4 py-2 bg-zinc-100 text-black rounded-lg cursor-pointer hover:opacity-90 transition disabled:opacity-50"
-          >
-            Add Question
-          </button>
-
-          <button
             type="submit"
             disabled={loading}
-            className="px-4 py-2 bg-zinc-800 text-white rounded-lg cursor-pointer hover:opacity-90 transition disabled:opacity-50"
+            className="px-10 py-2 bg-zinc-100 text-black rounded-lg cursor-pointer hover:opacity-90 transition disabled:opacity-50 mt-4"
           >
-            Create Quiz
+            Create quiz
           </button>
         </div>
       </form>
