@@ -1,10 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
-type OptionData = { text: string; isCorrect: boolean };
-type QuestionData = { text: string; options: OptionData[] };
-type QuizData = { title: string; questions: QuestionData[] };
+import { QuizData } from "../types/question";
 
 export function useViewQuiz(quizId: string) {
   const [quiz, setQuiz] = useState<QuizData | null>(null);

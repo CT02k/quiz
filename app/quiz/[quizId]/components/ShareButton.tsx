@@ -7,7 +7,7 @@ export function ShareButton({
   stats,
 }: {
   quizId: string;
-  stats: Stats & { timeTaken: string; totalQuestions: number };
+  stats: Stats & { timeTaken: number; totalQuestions: number };
 }) {
   const [copied, setCopied] = useState(false);
 
