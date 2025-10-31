@@ -133,7 +133,7 @@ export default function ViewQuizPage({
   if (completed)
     return (
       <div className="flex flex-col h-screen items-center justify-center">
-        <h1 className="text-6xl font-semibold">🎊 Results:</h1>
+        <h1 className="text-6xl font-semibold">🎊 Completed!</h1>
         <p className="text-xl mt-4">{porcentageMessage(stats.correct)}</p>
         <div className="bg-zinc-900 rounded-lg gap-4 border border-zinc-800 p-4 flex items-center justify-center my-10">
           <div className="bg-zinc-800 rounded-lg border border-zinc-700 w-72 h-30 flex flex-col items-center justify-center relative">
