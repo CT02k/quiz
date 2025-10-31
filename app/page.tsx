@@ -27,7 +27,7 @@ export default function Home() {
         {SITE_NAME}
       </h1>
       <h1
-        className="absolute top-100 right-100 text-[40rem] font-bold text-transparent opacity-5 -z-15"
+        className="absolute top-100 -left-100 text-[40rem] font-bold text-transparent opacity-5 -z-15"
         style={{ WebkitTextStroke: "2px white" }}
       >
         {SITE_NAME}
