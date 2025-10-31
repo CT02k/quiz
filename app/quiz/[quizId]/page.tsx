@@ -84,10 +84,57 @@ export default function ViewQuizPage({
       });
   };
 
+  const porcentageMessage = (correct: number) => {
+    const messages = [
+      {
+        min: 0,
+        max: 10,
+        message: "Don’t worry — every expert starts as a disaster.",
+      },
+      {
+        min: 10,
+        max: 30,
+        message: "You clearly tried — but guessing doesn’t count as strategy.",
+      },
+      {
+        min: 30,
+        max: 50,
+        message: "You’ve got the basics. Now refine your aim.",
+      },
+      {
+        min: 50,
+        max: 70,
+        message: "Good — but not great. Push for that next level.",
+      },
+      {
+        min: 70,
+        max: 85,
+        message: "That’s impressive — you almost aced it.",
+      },
+      {
+        min: 85,
+        max: 99,
+        message: "Almost flawless. You’ve earned the bragging rights.",
+      },
+      {
+        min: 100,
+        max: 100,
+        message: "Unstoppable. Whatever you’re doing — keep doing it.",
+      },
+    ];
+
+    const porcentage = (correct / totalQuestions) * 100;
+
+    return messages.filter((m) => {
+      if (porcentage >= m.min && porcentage <= m.max) return true;
+    })[0].message;
+  };
+
   if (completed)
     return (
       <div className="flex flex-col h-screen items-center justify-center">
         <h1 className="text-6xl font-semibold">🎊 Results:</h1>
+        <p className="text-xl mt-4">{porcentageMessage(stats.correct)}</p>
         <div className="bg-zinc-900 rounded-lg gap-4 border border-zinc-800 p-4 flex items-center justify-center my-10">
           <div className="bg-zinc-800 rounded-lg border border-zinc-700 w-72 h-30 flex flex-col items-center justify-center relative">
             <span className="right-1 top-1 text-xl absolute">⏱️</span>
