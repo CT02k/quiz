@@ -5,12 +5,8 @@ import { useViewQuiz } from "./hooks/useViewQuiz";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-
-type Stats = {
-  started: Date;
-  completed?: Date;
-  correct: number;
-};
+import { Stats } from "./types/stats";
+import { ShareButton } from "./components/ShareButton";
 
 export default function ViewQuizPage({
   params,
@@ -173,11 +169,18 @@ export default function ViewQuizPage({
             Play Again
           </button>
 
-          {/* <button
-            className="bg-zinc-800 cursor-pointer transition text-white rounded-lg h-10 w-10 hover:opacity-90 flex items-center justify-center"
-          >
-            <Share2 className="size-5" />
-          </button> */}
+          <ShareButton
+            quizId={quizId}
+            stats={{
+              ...stats,
+              totalQuestions: totalQuestions,
+              timeTaken: (
+                ((stats.completed?.getTime() || stats.started.getTime()) -
+                  stats.started.getTime()) /
+                1000
+              ).toFixed(0),
+            }}
+          />
         </div>
       </div>
     );
