@@ -1,1 +1,1 @@
-const SITE_NAME = "Quiz";
+export const SITE_NAME = "Quiz";
